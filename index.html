@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Инструмент53 — Прокат инструмента</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+    body {
+      padding-top: 80px;
+      font-family: 'Russo One', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: #000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 28px;
+      color: #FFD700;
+      border: 2px solid #FFD700;
+      padding: 6px 16px;
+      border-radius: 8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      font-weight: 700;
+    }
+    .nav-links a {
+      font-size: 18px;
+      color: #fff;
+    }
+    .nav-links a:hover {
+      color: #FFD700;
+      border-bottom: 2px solid #FFD700;
+      padding-bottom: 2px;
+    }
+    header.hero {
+      position: relative;
+      height: 80vh;
+      background-image: url('https://i.postimg.cc/Tw4VZRYL/fc6d86fd-fa9e-4c4a-ab3b-84ce53b9541e.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 60%;
+      transform: translateY(-60%);
+      padding: 0 20px;
+    }
+    .hero-content h1 {
+      font-size: 64px;
+      color: #fff;
+      text-shadow: 2px 2px 5px #000;
+    }
+    .hero-content p {
+      font-size: 24px;
+      margin: 20px 0;
+      color: #FFD700;
+    }
+    .btn {
+      background: #FFD700;
+      color: #000;
+      padding: 12px 24px;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.15);
+    }
+    .hero-contact {
+      position: absolute;
+      right: 30px;
+      bottom: 0;
+      text-align: right;
+      font-size: 20px;
+    }
+    .hero-contact a {
+      color: #fff;
+      font-weight: bold;
+    }
+    .benefits {
+      background: #1b1b1b;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      text-align: center;
+      gap: 20px;
+    }
+    .benefit {
+  background: #222;
+  border: 1px solid #FFD700;
+  color: white;
+  max-width: 300px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+    .benefit h3 {
+      color: #FFD700;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .benefit p {
+  font-size: 14px;
+  color: white;
+}
+  
+@media (max-width: 600px) {
+  .tool-card {
+    padding: 12px;
+  }
+  .tool-card h3 {
+    font-size: 18px;
+  }
+  .tool-card button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+<style>
+  
+
+.tool-card {
+  position: relative !important;
+}
+
+.tool-card {
+  position: relative !important;
+}
+
+
+
+
+
+
+.tool-card {
+  position: relative !important;
+}
+.info-icon-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  z-index: 10;
+  padding: 6px;
+}
+.info-icon-wrapper .info-text {
+  opacity: 0;
+  transform: translateX(10px);
+  color: #000;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 11px;
+  background: transparent;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+.info-icon-wrapper:hover .info-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+.info-icon {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  color: #FFD700;
+  font-weight: bold;
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+.info-icon-wrapper:hover .info-icon {
+  background-color: #FFD700;
+  color: #000;
+}
+
+/* Чёрный цвет заголовка в модалке */
+.modal-content h2 {
+  color: #000 !important;
+}
+
+
+
+
+
+.rental-price {
+  font-weight: 700;
+  color: #FFA500;
+  margin: 12px 0;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 18px;
+  text-shadow: 0 0 1px #00000020;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<style>
+.consult-section {
+  background-image: url('consult-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 140px 20px;
+  text-align: center;
+  position: relative;
+}
+.consult-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.consult-content {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: 1;
+}
+.consult-content h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 10px;
+}
+.consult-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.consult-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.consult-form input {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  width: 220px;
+  font-size: 16px;
+}
+.consult-form button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<style>
+.callback-button {
+  position: fixed;
+  bottom: 30px;
+  right: 150px;
+  background-color: #FFD700;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 999;
+  font-family: 'Russo One', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+  animation: vibrate 1.5s infinite;
+}
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.callback-button:hover {
+  background-color: #e6c100;
+}
+
+.callback-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.callback-modal.show {
+  display: flex;
+}
+
+.callback-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
+.callback-content h2 {
+  margin-bottom: 10px;
+  color: #FFD700;
+  font-size: 22px;
+}
+.callback-content p {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.callback-content input {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.callback-content button {
+  background-color: #FFD700;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.close-callback {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 26px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<style>
+.contact-dropdown {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #e6c100;
+  padding: 16px 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  font-family: 'Russo One', sans-serif;
+  color: #000;
+  min-width: 280px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.contact-dropdown.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.contact-dropdown h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #e6c100;
+}
+
+.contact-dropdown p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #000;
+}
+
+.contact-dropdown a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.contact-container {
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://instrument53.ru/index.html"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Инструмент53 — Аренда инструмента в Великом Новгороде",
+  "url": "https://instrument53.ru/index.html"
+}</script></head>
+<body>
+<nav>
+<div style="display: flex; align-items: center; gap: 20px;">
+<div class="logo">Инструмент53</div>
+<div style="width: 1px; height: 24px; background: #FFD700;"></div>
+</div>
+<style>
+.burger {
+  display: none;
+}
+@media (max-width: 480px) {
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<script>
+function toggleBurger() {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('show');
+}
+</script>
+<div class="burger" onclick="toggleBurger()">
+<div></div>
+<div></div>
+<div></div>
+</div>
+<div class="nav-links">
+<a href="catalog.html">Каталог</a>
+<a href="#sales">Акции</a>
+<a href="terms.html">Условия аренды</a>
+<a href="#about">О нас</a>
+<div class="contact-container">
+<a href="javascript:void(0);" onclick="toggleContactDropdown()">Контакты</a>
+<div class="contact-dropdown" id="contactDropdown">
+<h2>Контактная информация</h2>
+<p style="white-space: nowrap;">Телефон: <a href="tel:+79965687699">+7 (996) 568-76-99</a></p>
+<p>Адрес: Великий Новгород, ул. Нехинская, д. 46/1</p>
+<p>Режим работы: Пн–Вс с 9:00 до 20:00</p>
+</div>
+</div>
+<a href="cart.html">🛒 Корзина (0)</a>
+</div>
+</nav>
+<header class="hero">
+<div class="overlay"></div>
+<div class="hero-content">
+<h1>ПРОКАТ СТРОИТЕЛЬНОГО ИНСТРУМЕНТА В ВЕЛИКОМ НОВГОРОДЕ</h1>
+<p>Быстро. Надёжно. По звонку.</p>
+<button class="btn" onclick="document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' })">Выбрать инструмент</button>
+<div class="hero-contact" style="margin-top: 20px; text-align: center;">
+  Великий Новгород, ул. Нехинская 46/1<br/>
+<a href="tel:+79965687699" style="color: #fff; font-weight: bold;">+7 (996) 568-76-99</a>
+</div>
+</div>
+</header>
+<section class="benefits" style="">
+<div class="benefit">
+<h3>Без залога</h3>
+<p>Аренда без лишних условий — просто и честно</p>
+</div>
+<div class="benefit">
+<h3>Быстрая доставка</h3>
+<p>Привезём нужный инструмент в день обращения</p>
+</div>
+<div class="benefit">
+<h3>Обслуженный инструмент</h3>
+<p>Каждая единица проверяется перед выдачей</p>
+</div>
+</section>
+<section id="catalog" style="padding: 100px 20px; text-align: center; color: black; background-color: white; color: black;">
+<h2 style="font-size: 32px; color: #FFD700; margin-bottom: 40px;">Популярные инструменты</h2>
+<style>
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .tool-card {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+    }
+    .tool-card img {
+      width: 100%;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .tool-card h3 {
+      margin: 12px 0 4px;
+      font-size: 18px;
+    }
+    .tool-card .subtitle {
+      font-size: 13px;
+      color: #aaa;
+    }
+    .tool-card .price {
+      color: #FFD700;
+      font-size: 16px;
+      margin: 10px 0;
+      display: block;
+    }
+    .tool-card button {
+      width: 100%;
+      background: #FFD700;
+      color: #000;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .tool-card button:hover {
+      background: #e6c100;
+    }
+  
+<style>
+  .info-icon-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .info-icon-wrapper .info-text {
+    opacity: 0;
+    transform: translateX(10px);
+    color: #000;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    background: #FFD700;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .info-icon-wrapper:hover .info-text {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .info-icon {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    color: #000;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .tool-card {
+    position: relative;
+  }
+
+  /* Модальное окно */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+  }
+  .modal-content {
+  background-color: #fff;
+  margin: 80px auto;
+  padding: 20px;
+  border: 2px solid #FFD700;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 12px;
+  color: #000;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .modal-content img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  .modal-content h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
+  .modal-content ul {
+    padding-left: 20px;
+  }
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<div class="tool-grid"><div class="tool-card"><img alt="Виброплита" src="https://i.postimg.cc/XNB9DGt4/52201113.webp"/><h3>Виброплита</h3><p class="subtitle">Champion 4,8 кВт, 15 кН,416 м2/час</p><strong class="price">1500₽ / сутки</strong><button data-id="tool-1">🛒 Забронировать</button><div class="info-icon-wrapper" onclick="openModal('modal-vibro')"><div class="info-icon">!</div><div class="info-text">инфо</div></div></div><div class="tool-card"><img alt="Строительный Пылесос" src="https://i.postimg.cc/DzNCkVgN/pylesos-clean-1.png"/><h3>Строительный Пылесос</h3><p class="subtitle">Bosch GAS15PS</p><strong class="price">500₽ / сутки</strong><button data-id="tool-2">🛒 Забронировать</button><div class="info-icon-wrapper" onclick="openModal('modal-vacuum')"><div class="info-icon">!</div><div class="info-text">инфо</div></div></div><div class="tool-card"><img alt="Перфоратор" src="https://i.postimg.cc/1zXWjRp6/perforator-clean.png"/><h3>Перфоратор</h3><p class="subtitle">Makita HR2470</p><strong class="price">600₽ / сутки</strong><button data-id="tool-3">🛒 Забронировать</button><div class="info-icon-wrapper" onclick="openModal('modal-perf')"><div class="info-icon">!</div><div class="info-text">инфо</div></div></div><div class="tool-card"><div class="info-icon-wrapper" onclick="openModal('modal-shtrob')"><div class="info-icon">!</div><div class="info-text">инфо</div></div><img alt="Штроборез" src="https://i.postimg.cc/4xBLPHhs/shtrobo-clean.png"/><h3>Штроборез</h3><p class="subtitle">ЗУБР Профессионал d 125 мм</p><strong class="price">700₽ / сутки</strong><button data-id="tool-4">🛒 Забронировать</button></div><div class="tool-card"><div class="info-icon-wrapper" onclick="openModal('modal-ushm')"><div class="info-icon">!</div><div class="info-text">инфо</div></div><img alt="УШМ 230мм" src="https://i.postimg.cc/QN1fPyW6/ushm230-clean.png"/><h3>УШМ 230мм</h3><p class="subtitle">Makita GA 9020 SF</p><strong class="price">800₽ / сутки</strong><button data-id="tool-5">🛒 Забронировать</button></div><div class="tool-card"><div class="info-icon-wrapper" onclick="openModal('modal-shur')"><div class="info-icon">!</div><div class="info-text">инфо</div></div><img alt="Шуруповерт" src="https://i.postimg.cc/C5GJqRgy/shurupovert-clean.png"/><h3>Шуруповерт</h3><p class="subtitle">Bosch GSB 183-LI</p><strong class="price">500₽ / сутки</strong><button data-id="tool-6">🛒 Забронировать</button></div><div class="tool-card"><div class="info-icon-wrapper" onclick="openModal('modal-gen')"><div class="info-icon">!</div><div class="info-text">инфо</div></div><img alt="Генератор" src="https://i.postimg.cc/vB60GP2Z/generator-clean.png"/><h3>Генератор</h3><p class="subtitle">Champion GG7501E</p><strong class="price">1500₽ / сутки</strong><button data-id="tool-7">🛒 Забронировать</button></div><div class="tool-card" style="background: #FFD700; color: #000; display: flex; align-items: center; justify-content: center;"><a href="catalog.html" style="color: #000; text-decoration: none; font-weight: bold; font-size: 18px;">Смотреть весь каталог</a></div></div>
+</section>
+<!-- Модалки -->
+<script>
+  function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+</script>
+<div class="modal" id="modal-vibro"><div class="modal-content"><span class="close" onclick="closeModal('modal-vibro')">×</span><img alt="Бензиновая виброплита Champion" src="http://postimg.su/image/Gk8oFElo/52201113.webp"/><h2>Бензиновая виброплита Champion</h2><p class="rental-price">Стоимость аренды: 1500₽ / сутки</p><p>Бензиновая виброплита Champion 4,8 кВт, 15 кН, 30 см, 416 м2/час, 5045 см PC9045F - профессиональное строительное оборудование, которое активно используется при ремонте дорожных покрытий, уплотнения щебня и песка, а также асфальтобетонных смесей. Для комфортной работы оператора управление дроссельной заслонкой выведено на рабочую рукоятку плиты.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">бензиновый</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Глубина уплотнения</td><td style="border:1px solid #ddd; padding:6px;">300 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность (Вт)</td><td style="border:1px solid #ddd; padding:6px;">4800 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность (л.с.)</td><td style="border:1px solid #ddd; padding:6px;">6.5 л.с.</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Двигатель</td><td style="border:1px solid #ddd; padding:6px;">G200HK</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Производитель двигателя</td><td style="border:1px solid #ddd; padding:6px;">Champion</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Реверс</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Бак для воды</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Вес нетто</td><td style="border:1px solid #ddd; padding:6px;">89.3 кг</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тактность двигателя</td><td style="border:1px solid #ddd; padding:6px;">4-х тактный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Объем двигателя</td><td style="border:1px solid #ddd; padding:6px;">196 см³</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Емкость топливного бака</td><td style="border:1px solid #ddd; padding:6px;">3.6 л</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Центробежная сила</td><td style="border:1px solid #ddd; padding:6px;">15 кН</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max уплотняемая площадь</td><td style="border:1px solid #ddd; padding:6px;">416 м²/ч</td></tr></table></div></div><div class="modal" id="modal-vacuum"><div class="modal-content"><span class="close" onclick="closeModal('modal-vacuum')">×</span><img alt="Пылесос Bosch GAS15PS 06019E5180" src="http://postimg.su/image/A6K3rWcK/pylesos_clean (1).png"/><h2>Пылесос Bosch GAS15PS 06019E5180</h2><p class="rental-price">Стоимость аренды: 500₽ / сутки</p><p>Пылесос имеет на входе и на выходе розетку/вилку "type I".</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип пылесоса</td><td style="border:1px solid #ddd; padding:6px;">строительный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип</td><td style="border:1px solid #ddd; padding:6px;">сухая уборка</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип питания</td><td style="border:1px solid #ddd; padding:6px;">сеть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Модель пылесоса</td><td style="border:1px solid #ddd; padding:6px;">GAS15PS</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">1100 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Расход воздуха</td><td style="border:1px solid #ddd; padding:6px;">33 л/с</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Розетка для электроинструмента</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Пневморозетка</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">220 (230) В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина всасывающего шланга</td><td style="border:1px solid #ddd; padding:6px;">3 м</td></tr></table></div></div><div class="modal" id="modal-perf"><div class="modal-content"><span class="close" onclick="closeModal('modal-perf')">×</span><img alt="Перфоратор Makita HR2470" src="http://postimg.su/image/0sWMIaUM/perforator_clean.png"/><h2>Перфоратор Makita HR2470</h2><p class="rental-price">Стоимость аренды: 600₽ / сутки</p><p>Перфоратор Makita HR 2470 имеет двойную защитную изоляцию. Он может работать как отбойный молоток и как дрель. При обратном вращении (реверс), двигатель работает с той же скоростью и крутящим моментом.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">щеточный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип хвостовика</td><td style="border:1px solid #ddd; padding:6px;">sds-plus</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">780 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Количество режимов</td><td style="border:1px solid #ddd; padding:6px;">3</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max сила удара</td><td style="border:1px solid #ddd; padding:6px;">2.4 Дж</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Реверс</td><td style="border:1px solid #ddd; padding:6px;">поворотом щеток</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Виброзащита</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max диаметр сверления буром (бетон)</td><td style="border:1px solid #ddd; padding:6px;">24 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max диаметр сверления коронкой (бетон)</td><td style="border:1px solid #ddd; padding:6px;">54 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина кабеля</td><td style="border:1px solid #ddd; padding:6px;">4 м</td></tr></table></div></div><div class="modal" id="modal-shtrob"><div class="modal-content"><span class="close" onclick="closeModal('modal-shtrob')">×</span><img alt="Штроборез ЗУБР Профессионал d 125 мм" src="http://postimg.su/image/9L6dttK1/shtrobo_clean.png"/><h2>Штроборез ЗУБР Профессионал d 125 мм</h2><p class="rental-price">Стоимость аренды: 700₽ / сутки</p><p>Профессиональный инструмент с мощным двигателем для выполнения штроб глубиной до 30 мм в кирпиче и легких бетонах. Оснащен всеми современными электронными системами (плавный пуск, константная электроника, защита от перегрузки).</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">1600 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Количество рабочих дисков</td><td style="border:1px solid #ddd; padding:6px;">2 шт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Диаметр диска</td><td style="border:1px solid #ddd; padding:6px;">125 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Посадочный диаметр</td><td style="border:1px solid #ddd; padding:6px;">22.2 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Частота вращения шпинделя</td><td style="border:1px solid #ddd; padding:6px;">8800 об/мин</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Регулировка частоты вращения</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max глубина реза</td><td style="border:1px solid #ddd; padding:6px;">30 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Ширина паза</td><td style="border:1px solid #ddd; padding:6px;">3-30 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Поддержание постоянных оборотов</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Плавный пуск</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина кабеля</td><td style="border:1px solid #ddd; padding:6px;">4 м</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Вес нетто</td><td style="border:1px solid #ddd; padding:6px;">4.6 кг</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Возможность подключения к пылесосу</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr></table></div></div><div class="modal" id="modal-ushm"><div class="modal-content"><span class="close" onclick="closeModal('modal-ushm')">×</span><img alt="Угловая шлифмашина Makita GA 9020 SF" src="http://postimg.su/image/C0kyh6Xg/ushm230_clean.png"/><h2>Угловая шлифмашина Makita GA 9020 SF</h2><p class="rental-price">Стоимость аренды: 800₽ / сутки</p><p>Угловая шлифмашина Makita GA 9020 SF предназначена для резки и шлифовки изделий из различных материалов.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">220-240 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">2200 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">щеточный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Диаметр диска</td><td style="border:1px solid #ddd; padding:6px;">230 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Посадочный диаметр</td><td style="border:1px solid #ddd; padding:6px;">22.2 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Резьба шпинделя</td><td style="border:1px solid #ddd; padding:6px;">М14</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Число оборотов</td><td style="border:1px solid #ddd; padding:6px;">6600 об/мин</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Электр. регулировка оборотов</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Вид кнопки включения</td><td style="border:1px solid #ddd; padding:6px;">нажимная</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина кабеля</td><td style="border:1px solid #ddd; padding:6px;">2.5 м</td></tr></table></div></div><div class="modal" id="modal-shur"><div class="modal-content"><span class="close" onclick="closeModal('modal-shur')">×</span><img alt="Аккум. ударный шуруповерт Bosch GSB 183-LI" src="http://postimg.su/image/FrNDphE2/shurupovert_clean.png"/><h2>Аккум. ударный шуруповерт Bosch GSB 183-LI</h2><p class="rental-price">Стоимость аренды: 500₽ / сутки</p><p>Дрель-шуруповерт Bosch GSB 183-Li с 2 сменными слайдерными аккумуляторами по 2 А*ч. Подходит для закручивания шурупов и сверления в дереве, металле и бетоне.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">щеточный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max крутящий момент</td><td style="border:1px solid #ddd; padding:6px;">56 Нм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">Li-Ion</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Емкость</td><td style="border:1px solid #ddd; padding:6px;">2 А*ч</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">18 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Устройство аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">слайдер</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Размер зажимаемой оснастки</td><td style="border:1px solid #ddd; padding:6px;">1.5-13 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max сверление (дерево)</td><td style="border:1px solid #ddd; padding:6px;">35 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max сверление (металл)</td><td style="border:1px solid #ddd; padding:6px;">13 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Наличие удара</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr></table></div></div><div class="modal" id="modal-gen"><div class="modal-content"><span class="close" onclick="closeModal('modal-gen')">×</span><img alt="Бензиновый генератор Champion GG7501E" src="http://postimg.su/image/Tmrjv94y/generator_clean.png"/><h2>Бензиновый генератор Champion GG7501E</h2><p class="rental-price">Стоимость аренды: 1500₽ / сутки</p><p>Генератор Champion GG7501E используется там, где нет доступа к электросети — стройки, природа и т.д. Поддерживает до 6.5 кВт нагрузки.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">220 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Стартер</td><td style="border:1px solid #ddd; padding:6px;">ручной/электростартер</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max мощность</td><td style="border:1px solid #ddd; padding:6px;">6.5 кВт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Номинальная мощность</td><td style="border:1px solid #ddd; padding:6px;">6 кВт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Альтернатор</td><td style="border:1px solid #ddd; padding:6px;">синхронный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Топливный бак</td><td style="border:1px solid #ddd; padding:6px;">25 л</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Модель двигателя</td><td style="border:1px solid #ddd; padding:6px;">G421HCE</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">4-х тактный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Автозапуск</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr></table></div></div><div class="modal" id="modal-shtrob"><div class="modal-content"><span class="close" onclick="closeModal('modal-shtrob')">×</span><img alt="Штроборез (бороздодел) ЗУБР Профессионал d 125 мм" src="http://postimg.su/image/9L6dttK1/shtrobo_clean.png"/><h2>Штроборез (бороздодел) ЗУБР Профессионал d 125 мм</h2><p class="rental-price">Стоимость аренды: 700₽ / сутки</p><p>Профессиональный инструмент с мощным двигателем для выполнения штроб глубиной до 30 мм в кирпиче и легких бетонах. Оснащен всеми современными электронными системами (плавный пуск, константная электроника, защита от перегрузки) для безопасности и большей производительности.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">1600 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Количество рабочих дисков</td><td style="border:1px solid #ddd; padding:6px;">2 шт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Диаметр диска</td><td style="border:1px solid #ddd; padding:6px;">125 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Посадочный диаметр</td><td style="border:1px solid #ddd; padding:6px;">22.2 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Частота вращения шпинделя</td><td style="border:1px solid #ddd; padding:6px;">8800 об/мин</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Регулировка частоты вращения</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max глубина реза</td><td style="border:1px solid #ddd; padding:6px;">30 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Ширина паза</td><td style="border:1px solid #ddd; padding:6px;">3-30 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max ширина паза</td><td style="border:1px solid #ddd; padding:6px;">30 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Поддержание оборотов под нагрузкой</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Плавный пуск</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина кабеля</td><td style="border:1px solid #ddd; padding:6px;">4 м</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Вес нетто</td><td style="border:1px solid #ddd; padding:6px;">4.6 кг</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Подключение к пылесосу</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr></table></div></div><div class="modal" id="modal-ushm"><div class="modal-content"><span class="close" onclick="closeModal('modal-ushm')">×</span><img alt="Угловая шлифмашина Makita GA 9020 SF" src="http://postimg.su/image/C0kyh6Xg/ushm230_clean.png"/><h2>Угловая шлифмашина Makita GA 9020 SF</h2><p class="rental-price">Стоимость аренды: 800₽ / сутки</p><p>Угловая шлифмашина Makita GA 9020 SF предназначена для резки и шлифовки изделий из различных материалов.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">220-240 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность</td><td style="border:1px solid #ddd; padding:6px;">2200 Вт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">щеточный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Диаметр диска</td><td style="border:1px solid #ddd; padding:6px;">230 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Посадочный диаметр</td><td style="border:1px solid #ddd; padding:6px;">22.2 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Резьба шпинделя</td><td style="border:1px solid #ddd; padding:6px;">М14</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Число оборотов</td><td style="border:1px solid #ddd; padding:6px;">6600 об/мин</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Электр. регулировка оборотов</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Кнопка включения</td><td style="border:1px solid #ddd; padding:6px;">нажимная</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Длина кабеля</td><td style="border:1px solid #ddd; padding:6px;">2.5 м</td></tr></table></div></div><div class="modal" id="modal-shur"><div class="modal-content"><span class="close" onclick="closeModal('modal-shur')">×</span><img alt="Аккумуляторный ударный шуруповерт Bosch GSB 183-LI" src="http://postimg.su/image/FrNDphE2/shurupovert_clean.png"/><h2>Аккумуляторный ударный шуруповерт Bosch GSB 183-LI</h2><p class="rental-price">Стоимость аренды: 500₽ / сутки</p><p>Дрель-шуруповерт Bosch GSB 183-Li с 2 сменными слайдерными аккумуляторами емкостью по 2 А*ч обеспечивает удобство при отсутствии доступа к электрической сети. Инструмент с крутящим моментом 67 Н/м подходит для откручивания и закручивания шурупов, а также ударного сверления отверстий в древесине, металле, бетоне.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">щеточный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max крутящий момент</td><td style="border:1px solid #ddd; padding:6px;">56 Нм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мягкий крутящий момент</td><td style="border:1px solid #ddd; padding:6px;">21 Нм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Жесткий крутящий момент</td><td style="border:1px solid #ddd; padding:6px;">56 Нм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">Li-Ion</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Емкость аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">2 А*ч</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">18 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Устройство аккумулятора</td><td style="border:1px solid #ddd; padding:6px;">слайдер</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Размер оснастки</td><td style="border:1px solid #ddd; padding:6px;">1.5-13 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Min размер оснастки</td><td style="border:1px solid #ddd; padding:6px;">1.5 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max размер оснастки</td><td style="border:1px solid #ddd; padding:6px;">13 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max диаметр сверления (дерево)</td><td style="border:1px solid #ddd; padding:6px;">35 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max диаметр сверления (металл)</td><td style="border:1px solid #ddd; padding:6px;">13 мм</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Наличие удара</td><td style="border:1px solid #ddd; padding:6px;">есть</td></tr></table></div></div><div class="modal" id="modal-gen"><div class="modal-content"><span class="close" onclick="closeModal('modal-gen')">×</span><img alt="Бензиновый генератор Champion GG7501E" src="http://postimg.su/image/Tmrjv94y/generator_clean.png"/><h2>Бензиновый генератор Champion GG7501E</h2><p class="rental-price">Стоимость аренды: 1500₽ / сутки</p><p>Генератор Champion GG7501E используется в случаях, когда необходимо подключение различного электроинструмента или оборудования, а точки подключения нет (например, на строительных площадках, на природе и т.п.). К данной модели можно подключить несколько однофазных потребителей (предусмотрено 2 пыле-, влагозащищенные розетки) суммарной мощностью до 6000 Вт.</p><table style="width:100%; margin-top:15px; border-collapse:collapse;"><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Напряжение</td><td style="border:1px solid #ddd; padding:6px;">220 В</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Стартер</td><td style="border:1px solid #ddd; padding:6px;">ручной стартер/электростартер</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Max мощность</td><td style="border:1px solid #ddd; padding:6px;">6.5 кВт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность при 220 В (max)</td><td style="border:1px solid #ddd; padding:6px;">6.5 кВт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Мощность при 220 В (номинал)</td><td style="border:1px solid #ddd; padding:6px;">6 кВт</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Альтернатор</td><td style="border:1px solid #ddd; padding:6px;">синхронный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Топливный бак</td><td style="border:1px solid #ddd; padding:6px;">25 л</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Модель двигателя</td><td style="border:1px solid #ddd; padding:6px;">G421HCE</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Тип двигателя</td><td style="border:1px solid #ddd; padding:6px;">4-х тактный</td></tr><tr><td style="border:1px solid #ddd; padding:6px; font-weight:bold;">Автозапуск</td><td style="border:1px solid #ddd; padding:6px;">нет</td></tr></table></div></div> <script src="script.js"></script>
+<section class="consult-section">
+<div class="consult-content">
+<h2>ВЫ НЕЗНАЕТЕ КАКОЙ ИНСТРУМЕНТ ПРИМЕНИТЬ В ВАШЕЙ РАБОТЕ?</h2>
+<p>Наши специалисты с радостью проконсультируют вас</p>
+<form class="consult-form" onsubmit="sendConsultation(event)">
+<input name="name" placeholder="Имя*" required="" type="text"/>
+<input name="phone" placeholder="Телефон*" required="" type="tel"/>
+<button type="submit">Получить консультацию</button>
+</form>
+</div>
+</section>
+<script>
+function sendConsultation(event) {
+  event.preventDefault();
+  const name = document.querySelector('[name="name"]').value.trim();
+  const phone = document.querySelector('[name="phone"]').value.trim();
+
+  if (!name || !phone) {
+    alert('Пожалуйста, заполните все поля.');
+    return;
+  }
+
+  const message = `<b>Заявка на консультацию</b>%0A<b>Имя:</b> ${name}%0A<b>Телефон:</b> ${phone}`;
+  const token = "7924908535:AAG2rPDWUuJXDoS44FPBkwPGXD0AeK825ns";
+  const chatId = "591230880";
+  const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=HTML`;
+
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        alert('С вами свяжется специалист в ближайшее время');
+        document.querySelector('[name="name"]').value = "";
+        document.querySelector('[name="phone"]').value = "";
+      } else {
+        alert('Ошибка при отправке формы. Попробуйте позже.');
+      }
+    })
+    .catch(() => alert('Ошибка соединения с Telegram.'));
+}
+</script>
+<!-- БЛОК АКЦИЙ -->
+<section id="sales" style="padding: 100px 20px; background: #1b1b1b; color: white; text-align: center;">
+<h2 style="font-size: 32px; color: #FFD700; margin-bottom: 40px;"> Наши акции</h2>
+<div id="promo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
+<!-- Акция 1 -->
+<div class="promo-card" style="position: relative; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255,215,0,0.2);">
+<img alt="Акция 1" src="promo1.jpg" style="width: 100%; display: block;"/>
+<div class="info-icon-wrapper" onclick="openModal('promo1-modal')" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+<div class="info-icon" style="width: 22px; height: 22px; background: #FFD700; color: #000; border-radius: 50%; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+</div>
+</div>
+<!-- Акция 2 -->
+<div class="promo-card" style="position: relative; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255,215,0,0.2);">
+<img alt="Акция 2" src="promo2.jpg" style="width: 100%; display: block;"/>
+<div class="info-icon-wrapper" onclick="openModal('promo2-modal')" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+<div class="info-icon" style="width: 22px; height: 22px; background: #FFD700; color: #000; border-radius: 50%; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+</div>
+</div>
+<!-- Акция 3 -->
+<div class="promo-card" style="position: relative; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255,215,0,0.2);">
+<img alt="Акция 3" src="promo3.jpg" style="width: 100%; display: block;"/>
+<div class="info-icon-wrapper" onclick="openModal('promo3-modal')" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+<div class="info-icon" style="width: 22px; height: 22px; background: #FFD700; color: #000; border-radius: 50%; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+</div>
+</div>
+<!-- Акция 4 (скрытая) -->
+<div class="promo-card promo-hidden" style="display: none; position: relative; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255,215,0,0.2);">
+<img alt="Акция 4" src="promo4.jpg" style="width: 100%; display: block;"/>
+<div class="info-icon-wrapper" onclick="openModal('promo4-modal')" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+<div class="info-icon" style="width: 22px; height: 22px; background: #FFD700; color: #000; border-radius: 50%; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+</div>
+</div>
+<!-- Акция 5 (скрытая) -->
+<div class="promo-card promo-hidden" style="display: none; position: relative; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255,215,0,0.2);">
+<img alt="Акция 5" src="promo5.jpg" style="width: 100%; display: block;"/>
+<div class="info-icon-wrapper" onclick="openModal('promo5-modal')" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+<div class="info-icon" style="width: 22px; height: 22px; background: #FFD700; color: #000; border-radius: 50%; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+</div>
+</div>
+</div>
+<button onclick="togglePromos()" style="margin-top: 40px; padding: 12px 24px; font-size: 16px; font-weight: bold; background: #FFD700; color: #000; border: none; border-radius: 8px; cursor: pointer;">Смотреть все акции</button>
+</section>
+<!-- МОДАЛЬНЫЕ ОКНА ДЛЯ АКЦИЙ -->
+<div class="modal" id="promo1-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+<div class="modal-content" style="background:#fff; padding:24px; border-radius:12px; max-width:500px; width:90%; position:relative; color:#000;">
+<span onclick="closeModal('promo1-modal')" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">×</span>
+<img alt="Акция 1" src="promo1.jpg" style="width:100%; border-radius:8px; margin-bottom:16px;"/>
+<h2 style="color:#FFD700;">Скидка 40% на комбо Штроборез + Пылесос</h2>
+<p>При аренде штробореза и пылесова — получите скидку 40% на стоимость пылесоса.</p>
+</div>
+</div>
+<div class="modal" id="promo2-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+<div class="modal-content" style="background:#fff; padding:24px; border-radius:12px; max-width:500px; width:90%; position:relative; color:#000;">
+<span onclick="closeModal('promo2-modal')" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">×</span>
+<img alt="Акция 2" src="promo2.jpg" style="width:100%; border-radius:8px; margin-bottom:16px;"/>
+<h2 style="color:#FFD700;">Аренда лестницы — бесплатно</h2>
+<p>При бронировании перфоратора на 2-е суток и больше — даем лестницу бесплатно</p>
+</div>
+</div>
+<div class="modal" id="promo3-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+<div class="modal-content" style="background:#fff; padding:24px; border-radius:12px; max-width:500px; width:90%; position:relative; color:#000;">
+<span onclick="closeModal('promo3-modal')" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">×</span>
+<img alt="Акция 3" src="promo3.jpg" style="width:100%; border-radius:8px; margin-bottom:16px;"/>
+<h2 style="color:#FFD700;">Аренда на 6 дней - 7-й бесплатно</h2>
+<p>Арендуй инструмент на 6 дней и получи 7-й в подарок!</p>
+</div>
+</div>
+<div class="modal" id="promo4-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+<div class="modal-content" style="background:#fff; padding:24px; border-radius:12px; max-width:500px; width:90%; position:relative; color:#000;">
+<span onclick="closeModal('promo4-modal')" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">×</span>
+<img alt="Акция 4" src="promo4.jpg" style="width:100%; border-radius:8px; margin-bottom:16px;"/>
+<h2 style="color:#FFD700;">Скидка на безопасное комбо</h2>
+<p>Возьмите в аренду комбо набор ушм+очки+перчатки и получите скидку на все 15%.</p>
+</div>
+</div>
+<div class="modal" id="promo5-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+<div class="modal-content" style="background:#fff; padding:24px; border-radius:12px; max-width:500px; width:90%; position:relative; color:#000;">
+<span onclick="closeModal('promo5-modal')" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">×</span>
+<img alt="Акция 5" src="promo5.jpg" style="width:100%; border-radius:8px; margin-bottom:16px;"/>
+<h2 style="color:#FFD700;">Скидка за отзыв</h2>
+<p>Оставьте положительный отзыв в Яндексе и получите скидку 30% на все!.</p>
+</div>
+</div>
+<script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.style.display = 'flex';
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.style.display = 'none';
+    }
+    let extraShown = false;
+    function togglePromos() {
+      const hiddenPromos = document.querySelectorAll('.promo-hidden');
+      hiddenPromos.forEach(el => {
+        el.style.display = extraShown ? 'none' : 'block';
+      });
+      event.target.innerText = extraShown ? 'Смотреть все акции' : 'Скрыть акции';
+      extraShown = !extraShown;
+    }
+  </script>
+<section class="about-split-section" id="about">
+<div class="about-split-container">
+<div class="about-text-col">
+<h2>О компании «Инструмент53»</h2>
+<p>Мы — команда, которая знает, насколько важно иметь надёжный инструмент под рукой. Именно поэтому с 2020 года мы занимаемся арендой строительного оборудования в Великом Новгороде.</p>
+<p>Наш подход прост: вы берёте инструмент тогда, когда он нужен — без залога, по честной цене, с быстрой доставкой. Мы сами строили, ремонтировали, и знаем, как бесит тупой диск или дрель, которая не тянет. У нас такого нет.</p>
+<p>Каждый инструмент мы проверяем перед выдачей. Если что-то ломается — сразу меняем. С нами удобно, как с соседом, только профессионально.</p>
+</div>
+<div class="about-image-col">
+<img alt="Бренды инструмента" src="brand-logos-resized.png"/>
+</div>
+</div>
+</section>
+<style>
+
+.about-split-section {
+  background-color: #000;
+  color: white;
+  padding: 80px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-split-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.about-text-col {
+  flex: 1;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+.about-text-col h2 {
+  font-size: 36px;
+  color: #FFD700;
+  margin-bottom: 24px;
+}
+.about-text-col p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.about-image-col {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+.about-image-col img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+@media (max-width: 900px) {
+  .about-split-container {
+    flex-direction: column;
+  }
+  .about-image-col img {
+    max-height: 400px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+    padding-top: 60px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #000;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .burger div {
+    width: 24px;
+    height: 3px;
+    background-color: #FFD700;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .tool-card {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .tool-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tool-card .subtitle {
+    font-size: 12px !important;
+  }
+
+  .tool-card button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .callback-button {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    line-height: 48px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  .consult-form input,
+  .consult-form button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+}
+
+</style>
+<div class="callback-button" onclick="openCallbackForm()">
+<svg fill="#000" height="26" style="vertical-align: middle;" viewbox="0 0 16 16" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.654 1.328a.678.678 0 0 1 .58-.326h2.223c.27 0 .51.167.595.41l.548 1.588a.678.678 0 0 1-.155.685L6.745 5.158a11.554 11.554 0 0 0 4.096 4.096l1.473-1.7a.678.678 0 0 1 .685-.155l1.588.548c.243.085.41.325.41.595v2.223a.678.678 0 0 1-.326.58l-2.223 1.483a.678.678 0 0 1-.738.04c-1.169-.63-2.546-1.694-3.993-3.14C5.347 7.457 4.283 6.08 3.653 4.911a.678.678 0 0 1 .04-.738L5.176 1.95a.678.678 0 0 1 .478-.622z"></path>
+</svg>
+</div>
+<div class="callback-modal" id="callback-modal">
+<div class="callback-content">
+<span class="close-callback" onclick="closeCallbackForm()">×</span>
+<h2>Оставьте заявку</h2>
+<p>Мы свяжемся с вами в ближайшее время</p>
+<input id="callback-name" placeholder="Ваше имя" type="text">
+<input id="callback-phone" placeholder="Телефон" type="tel">
+<button onclick="submitCallback()">Отправить</button>
+</input></input></div>
+</div>
+<script>
+function openCallbackForm() {
+  document.getElementById('callback-modal').classList.add('show');
+}
+
+function closeCallbackForm() {
+  document.getElementById('callback-modal').classList.remove('show');
+}
+
+function submitCallback() {
+  const name = document.getElementById('callback-name').value.trim();
+  const phone = document.getElementById('callback-phone').value.trim();
+
+  if (!name || !phone) {
+    alert("Пожалуйста, заполните все поля.");
+    return;
+  }
+
+  const message = `📞 Обратный звонок!\n👤 Имя: ${name}\n📱 Телефон: ${phone}`;
+
+  fetch('https://api.telegram.org/bot7924908535:AAG2rPDWUuJXDoS44FPBkwPGXD0AeK825ns/sendMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      chat_id: '591230880',
+      text: message
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Спасибо! Мы скоро свяжемся с вами.");
+      closeCallbackForm();
+    } else {
+      alert("Ошибка при отправке. Попробуйте позже.");
+    }
+  })
+  .catch(error => {
+    alert("Сетевая ошибка.");
+  });
+}
+</script>
+<script>
+function toggleContactDropdown() {
+  const dropdown = document.getElementById('contactDropdown');
+  dropdown.classList.toggle('show');
+}
+
+// Закрытие при клике вне
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('contactDropdown');
+  const trigger = event.target.closest('.contact-container');
+  if (!trigger && dropdown) {
+    dropdown.classList.remove('show');
+  }
+});
+</script>
+<footer style="background: #000; padding: 30px 20px; text-align: center; font-size: 16px; color: #FFD700; font-family: 'Russo One', sans-serif;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+<div>Телефон: <a href="tel:+79965687699" style="color: #FFD700; white-space: nowrap;">+7 (996) 568-76-99</a></div>
+<div>Адрес: Великий Новгород, ул. Нехинская, д. 46/1</div>
+<div>Режим работы: Пн–Вс с 9:00 до 20:00</div>
+</div>
+</footer>
+</body>
+</html>

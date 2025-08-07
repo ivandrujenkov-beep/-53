@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://instrument53.ru/sitemap.xml

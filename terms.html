@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Условия аренды</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&amp;display=swap" rel="stylesheet"/>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Russo One', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
+    }
+    .left {
+      width: 50%;
+      height: 100vh;
+      position: relative;
+      background: url('terms_left.png') no-repeat center top 60px;
+      background-size: cover;
+      background-size: cover;
+    }
+    .right {
+      width: 50%;
+      padding: 120px 40px 60px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-color: #000;
+    }
+
+    .accordion-item {
+      background-color: #1a1a1a;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .accordion-item:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+    .accordion-item.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+    .accordion-item .icon {
+      font-size: 24px;
+    }
+
+    .accordion-content-wrapper {
+      overflow: hidden;
+      height: 0;
+      transition: height 0.4s ease;
+    }
+
+    .accordion-content {
+      background-color: #111;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 16px 24px;
+      opacity: 0;
+      transform: scaleY(0.95);
+      transform-origin: top;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .accordion-content.show {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  </style>
+<style>
+@media (max-width: 768px) {
+  body {
+    flex-direction: column !important;
+    padding-top: 100px !important;
+  }
+
+  .left {
+    width: 100% !important;
+    height: 200px !important;
+    background-size: cover !important;
+    background-position: center top !important;
+  }
+
+  .left div {
+    font-size: 26px !important;
+    left: 20px !important;
+    top: 20px !important;
+  }
+
+  .right {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .accordion-item {
+    font-size: 16px !important;
+    padding: 14px 16px !important;
+  }
+
+  .accordion-content {
+    font-size: 14px !important;
+    padding: 12px 16px !important;
+  }
+
+  nav {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 15px 20px !important;
+  }
+
+  .nav-links {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .nav-links a {
+    font-size: 16px !important;
+  }
+
+  .logo {
+    font-size: 22px !important;
+    padding: 4px 12px !important;
+  }
+}
+</style><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://instrument53.ru/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Условия аренды",
+      "item": "https://instrument53.ru/terms.html"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Условия аренды — Инструмент53",
+  "url": "https://instrument53.ru/terms.html"
+}</script></head>
+<body>
+<nav style="position: fixed; top: 0; left: 0; width: 100%; z-index: 999; background: #000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: 20px;">
+<div class="logo" style="font-size: 28px; color: #FFD700; border: 2px solid #FFD700; padding: 6px 16px; border-radius: 8px;">Инструмент53</div>
+<div style="width: 1px; height: 24px; background: #FFD700;"></div>
+</div>
+<div class="nav-links" style="display: flex; gap: 30px; align-items: center; font-weight: 700;">
+<a href="index.html" style="font-size: 18px; color: #fff;">Главная</a>
+<a href="catalog.html" style="font-size: 18px; color: #fff;">Каталог</a>
+<a href="index.html#sales" style="font-size: 18px; color: #fff;">Акции</a>
+<a href="index.html#about" style="font-size: 18px; color: #fff;">О нас</a>
+<div class="contact-container" style="position: relative;">
+<a href="javascript:void(0);" onclick="toggleContactDropdown()" style="font-size: 18px; color: #fff;">Контакты</a>
+<div class="contact-dropdown" id="contactDropdown" style="display: none; opacity: 0; transform: translateY(10px); position: absolute; top: calc(100% + 10px); right: 0; background-color: #fff; border: 1px solid #e6c100; padding: 16px 20px; border-radius: 10px; z-index: 9999; font-family: 'Russo One', sans-serif; color: #000; min-width: 280px; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15); text-align: left; transition: all 0.3s ease;">
+<h2 style="font-size: 18px; margin-bottom: 10px; color: #e6c100;">Контактная информация</h2>
+<p style="font-size: 14px; margin: 6px 0; white-space: nowrap;">Телефон: <a href="tel:+79965687699" style="color: #000; text-decoration: underline;">+7 (996) 568-76-99</a></p>
+<p style="font-size: 14px; margin: 6px 0;">Адрес: Великий Новгород, ул. Нехинская, д. 46/1</p>
+<p style="font-size: 14px; margin: 6px 0;">Режим работы: Пн–Вс с 9:00 до 20:00</p>
+</div>
+</div>
+<a href="cart.html" style="font-size: 18px; color: #fff;">🛒 Корзина (0)</a>
+</div>
+</nav>
+<script>
+function toggleContactDropdown() {
+  const dropdown = document.getElementById("contactDropdown");
+  dropdown.classList.toggle("show");
+  if (dropdown.classList.contains("show")) {
+    dropdown.style.display = "block";
+    setTimeout(() => {
+      dropdown.style.opacity = "1";
+      dropdown.style.transform = "translateY(0)";
+    }, 10);
+  } else {
+    dropdown.style.opacity = "0";
+    dropdown.style.transform = "translateY(10px)";
+    setTimeout(() => {
+      dropdown.style.display = "none";
+    }, 300);
+  }
+}
+</script>
+<div class="left">
+<div style="position: absolute; top: 30px; left: 40px; z-index: 10; color: #FFD700; font-size: 42px; font-family: 'Russo One', sans-serif;">
+    УСЛОВИЯ АРЕНДЫ
+  </div></div>
+<div class="right">
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>КАК ОФОРМИТЬ АРЕНДУ</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Выберите инструмент на сайте<br/>
+        • Нажмите “Забронировать”<br/>
+        • Оставьте номер телефона — мы перезвоним<br/>
+        • Заключаем договор — привозим инструмент
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>НЕОБХОДИМЫЕ ДОКУМЕНТЫ</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Паспорт (оригинал)<br/>
+        • Водительские права (если есть)<br/>
+        • Данные для оформления договора
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>УСЛОВИЯ И СРОКИ</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Минимальный срок аренды: 1 сутки<br/>
+        • Оплата — по факту передачи<br/>
+        • Пролонгация — по звонку
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>ЗАЛОГ</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Если прописка Новгородская, то работаем по договору
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>ОТВЕТСТВЕННОСТЬ И ВОЗВРАТ</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Проверка инструмента при передаче<br/>
+        • При поломке по вине арендатора — оплата ремонта<br/>
+        • Опоздание возврата — дополнительная плата
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>ДОСТАВКА</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • В пределах Великого Новгорода — по согласованию<br/>
+        • Возможен самовывоз со склада
+      </div>
+</div>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<span>КОНТАКТЫ И ГРАФИК</span>
+<span class="icon">+</span>
+</div>
+<div class="accordion-content-wrapper">
+<div class="accordion-content">
+        • Телефон: +7 (996) 568-76-99<br/>
+        • Адрес: ул. Нехинская, д. 46/1<br/>
+        • Работаем: Пн–Вс с 9:00 до 20:00
+      </div>
+</div>
+</div>
+<script>
+    function toggleAccordion(item) {
+      const allItems = document.querySelectorAll('.accordion-item');
+      const allWrappers = document.querySelectorAll('.accordion-content-wrapper');
+      const allContents = document.querySelectorAll('.accordion-content');
+
+      allItems.forEach((btn, index) => {
+        const wrapper = allWrappers[index];
+        const content = allContents[index];
+
+        if (btn === item) {
+          const isExpanded = content.classList.contains("show");
+          if (isExpanded) {
+            btn.classList.remove('active');
+            content.classList.remove("show");
+            wrapper.style.height = "0px";
+          } else {
+            btn.classList.add('active');
+            content.classList.add("show");
+            wrapper.style.height = content.scrollHeight + "px";
+          }
+        } else {
+          allContents[index].classList.remove("show");
+          allWrappers[index].style.height = "0px";
+        }
+      });
+    }
+  </script>
+<div class="callback-button" onclick="openCallbackForm()">
+<svg fill="#000" height="26" style="vertical-align: middle;" viewbox="0 0 16 16" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.654 1.328a.678.678 0 0 1 .58-.326h2.223c.27 0 .51.167.595.41l.548 1.588a.678.678 0 0 1-.155.685L6.745 5.158a11.554 11.554 0 0 0 4.096 4.096l1.473-1.7a.678.678 0 0 1 .685-.155l1.588.548c.243.085.41.325.41.595v2.223a.678.678 0 0 1-.326.58l-2.223 1.483a.678.678 0 0 1-.738.04c-1.169-.63-2.546-1.694-3.993-3.14C5.347 7.457 4.283 6.08 3.653 4.911a.678.678 0 0 1 .04-.738L5.176 1.95a.678.678 0 0 1 .478-.622z"></path>
+</svg>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
